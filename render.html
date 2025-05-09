@@ -7,13 +7,6 @@
 	<body>
 		<h1>这是第一个Electron桌面应用</h1>
         <button onclick="sendMessag()">Send Message</button>
-        <script>
-            function sendMessag() {
-                window.electronAPI.sendMessage('hello from renderer');
-            }
-            window.electronAPI.onMessage((msg)=>{
-                alert('Got message from main process: ' + msg);
-            })
-        </script>
+        <script src="render.js"></script>
 	</body>
 </html>

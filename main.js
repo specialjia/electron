@@ -13,10 +13,7 @@ function createWindow() {
     });
 
     win.loadFile('render.html');
-    ipcMain.on('msg-from-renderer', (event, msg) => {
-    console.log('Received from renderer:', msg);
-    win.webContents.send('msg-from-main', 'Hello from main process!');
-});
+   
 }
 app.on('ready', createWindow);
 app.on('window-all-closed', () => {
@@ -25,4 +22,10 @@ app.on('window-all-closed', () => {
     }
 });
 
-
+ ipcMain.on('msg-from-renderer', (event, msg) => {
+    console.log('Received from renderer:', msg);
+    //event 是IpcMainEvent 对象
+    //event.sender 相当于发来信息的那个窗口的webContents对象
+    //event.sender.send() 发送消息给渲染进程
+    event.sender.send('msg-from-main', 'Hello from main process!');
+});
