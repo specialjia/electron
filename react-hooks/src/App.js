@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import LikeButton from './components/LikeButton';
+import MouseTracker from './components/MouseTracker';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           Learn React
         </a>
         <LikeButton />
+        <MouseTracker />
       </header>
     </div>
   );
