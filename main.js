@@ -29,10 +29,8 @@ app.on('ready', () => {
     ? 'http://localhost:3000'
     : path.join(__dirname, './build/index.html');
     console.log('urlLocation', path.join(__dirname, './build/index.html'));
-    if (isDev) {
-        mainWindow.loadURL(urlLocation);
-    } else {
-        mainWindow.loadFile(urlLocation);  // 注意，这里是 file path 不是 file:// URL
-    }
+   
+    mainWindow.loadURL(urlLocation);
+   
 
 });
